@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+
+    <div class="container my-4">
+        <div class="list-group">
+            {% for centre in centres %}
+            <a href="{% url 'home:events' pk=centre.pk %}" class="list-group-item list-group-item-action">
+                {% if centre.centre_img %}
+                    <img src="{{centre.centre_img.url}}" class="img-responsive img-thumbnail" width="100px" height="100px">
+                {% endif %}
+                <span><b>{{centre.centre_name}}</b></span>
+            </a>
+            {% endfor %}
+          </div>
+    </div>
+    
+    
+    <script src="{% static 'home/js/main.js' %}"></script>
+{% endblock body %}
