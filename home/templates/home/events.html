@@ -9,14 +9,42 @@
 <div class="container my-3">
     <div class="row align-items-center h-100">
         {% for event in events %}
-            <div class="card mx-3 my-3" style="width: 18rem;">
-                <img src="{{event.event_img.url}}" class="card-img-top img-thumbnail align-middle" alt="...">
-                <div class="card-body">
-                    <p class="card-text">{{event.date_time}}</p>
-                </div>
+        <div class="card mx-3 my-3" style="width: 18rem;">
+            <img src="{{event.event_img.url}}" class="card-img-top img-thumbnail align-middle" alt="..." data-toggle="modal" data-target="#eventModal{{event.pk}}">
+            <div class="card-body">
+                <p class="card-text">{{event.date_time}}</p>
             </div>
+        </div>
         {% endfor %}
     </div>
+</div>
+
+{% for event in events %}
+<div class="modal fade" id="eventModal{{event.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img src="{{event.event_img.url}}" class="card-img-top img-thumbnail align-middle mt-2" alt="..." data-toggle="modal" data-target="#eventModal">
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<br><br><br><br>
+
+
+<div class="footer">
+    {% if centre.centre_contact %}
+    <p>Contact - {{centre.centre_contact}}</p>
+    {% endif %}
+
+    {% if centre.centre_address %}
+    <p>Address - {{centre.centre_address}}</p>
+    {% endif %}
 </div>
 
 {% endblock body %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Centre, Event
 
@@ -11,5 +11,7 @@ def index(request):
 
 def events(request, pk):
     events = Event.objects.filter(centre=pk)
-    context = {'events': events}
+    centre = get_object_or_404(Centre, pk=pk)
+    
+    context = {'events': events, 'centre': centre}
     return render(request, 'home/events.html', context)
