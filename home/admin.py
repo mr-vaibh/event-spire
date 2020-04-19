@@ -4,7 +4,7 @@ from .models import Centre, Event
 
 # Register your models here.
 
-admin.site.site_header = 'Admin Panel'
+admin.site.site_header = 'Events | Admin Panel'
 admin.site.site_title = 'Events'
 
 class CentreAdmin(admin.ModelAdmin):
