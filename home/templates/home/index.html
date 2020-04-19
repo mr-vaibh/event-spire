@@ -6,6 +6,7 @@
 {% block body %}
 
     <div class="container my-4">
+    {% if centres %}
         <div class="list-group">
             {% for centre in centres %}
             <a href="{% url 'home:events' pk=centre.pk %}" class="list-group-item list-group-item-action">
@@ -15,7 +16,10 @@
                 <span><b>{{centre.centre_name}}</b></span>
             </a>
             {% endfor %}
-          </div>
+        </div>
+    {% else %}
+    <h3>No Centres Found<img src"{% static 'home/img/disappointed.png' %}></h3>
+    {% endif %}
     </div>
     
     
