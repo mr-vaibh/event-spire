@@ -20,18 +20,20 @@
 </div>
 
 {% for event in events %}
-<div class="modal fade" id="eventModal{{event.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <img src="{{event.event_img.url}}" class="card-img-top img-thumbnail align-middle mt-2" alt="..." data-toggle="modal" data-target="#eventModal">
+    {% if event.event_img.url %}
+    <div class="modal fade" id="eventModal{{event.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <img src="{{event.event_img.url}}" class="card-img-top img-thumbnail align-middle mt-2" alt="..." data-toggle="modal" data-target="#eventModal">
+                </div>
             </div>
         </div>
     </div>
-</div>
+    {% endif %}
 {% endfor %}
 
 <br><br><br><br>
