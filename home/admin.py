@@ -13,7 +13,7 @@ class CentreAdmin(admin.ModelAdmin):
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ['id', 'event_img', 'centre', 'date_time']
-    list_filter = ['date_time']
+    list_filter = ['centre', 'date_time']
 
 admin.site.unregister(Group)
 admin.site.register(Centre, CentreAdmin)
