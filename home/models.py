@@ -15,6 +15,14 @@ class Centre(models.Model):
 
 class Event(models.Model):
     centre = models.ForeignKey(Centre, on_delete=models.CASCADE, default=None, null=False)
+    event_name = models.CharField(max_length=50, default='', blank=True)
+    start_date = models.DateField(blank=True)
+    end_date = models.DateField(blank=True)
+    faciliator = models.CharField(max_length=100, default='', blank=True)
+    host = models.CharField(max_length=50, default='', blank=True)
+    event_manager = models.CharField(max_length=50, default='', blank=True)
+    event_contact = models.CharField(max_length=20, default='', blank=True)
+    location = models.CharField(max_length=100, default='', blank=True)
     event_img = models.ImageField(upload_to='home/event/', blank=False)
     date_time = models.DateTimeField(default=timezone.now)
 
