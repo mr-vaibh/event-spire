@@ -11,7 +11,7 @@
             {% for centre in centres %}
             <a href="{% url 'home:events' pk=centre.pk %}" class="list-group-item list-group-item-action">
                 {% if centre.centre_img %}
-                    <img src="{{centre.centre_img.url}}" class="img-responsive img-thumbnail" alt="try reloading or re-uploading image" width="100px" height="100px">
+                    <img src="{{centre.centre_img.url}}" class="image img-responsive img-thumbnail" alt="try reloading or re-uploading image" width="100px" height="100px">
                 {% endif %}
                 <span><b>{{centre.centre_name}}, {{centre.centre_location}}</b></span>
             </a>
